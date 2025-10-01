@@ -95,11 +95,11 @@ const handleConfirm = () => {
       />
       <SelectionCard 
         label="Spécialités"
-        :options="classes" 
+        :show-chevron="true"
       />
       <SelectionCard 
         label="Notes"
-        :options="classes" 
+        :show-chevron="true"
       />
       <button :class="confirmButtonClasses" @click="handleConfirm">
         {{ bothClassChoicesMade ? 'Continuer' : 'Confirmer' }}

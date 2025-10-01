@@ -26,6 +26,10 @@ const props = defineProps({
   selectedSecondaryValue: {
     type: String,
     default: ''
+  },
+  showChevron: {
+    type: Boolean,
+    default: false
   }
 });
 
@@ -70,7 +74,7 @@ const getDisplayValue = () => {
           {{ getDisplayValue() }}
         </span>
         <ChevronDown 
-          v-if="options.length > 0"
+          v-if="options.length > 0 || showChevron"
           :class="{ 'rotate-180': showOptions }" 
           class="transition-transform" 
         />
