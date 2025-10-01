@@ -43,12 +43,12 @@ const closeModal = () => {
   <!-- Overlay -->
   <div 
     v-if="isVisible"
-    class="fixed inset-0 z-50 flex items-center justify-center p-4"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gris"
     @click="closeModal"
   >
     <!-- Modal -->
     <div 
-      class="bg-white rounded-2xl w-full max-w-md max-h-[80vh] flex flex-col"
+      class="bg-white rounded-2xl w-full md:w-[720px] max-h-[80vh] flex flex-col"
       @click.stop
     >
       <!-- Header -->

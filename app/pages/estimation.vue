@@ -171,7 +171,7 @@ onMounted(() => {
 
       <!-- Actions supplémentaires -->
       <div class="mt-[16px] flex gap-[12px]">
-        <button class="flex-1 bg-black border-none text-white py-[12px] rounded-2xl font-medium">
+        <button @click="goBack" class="flex-1 bg-black border-none text-white py-[12px] rounded-2xl font-medium">
           Tester une autre formation
         </button>
       </div>

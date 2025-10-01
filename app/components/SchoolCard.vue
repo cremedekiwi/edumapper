@@ -20,7 +20,7 @@ defineEmits(['modify']);
 </script>
 
 <template>
-  <section class="mt-[24px] pl-[16px] h-[144px] w-[343px] text-white flex flex-col justify-center bg-linear-to-r from-orange to-purple rounded-2xl">
+  <section class="mt-[24px] pl-[16px] h-[144px] w-[343px] md:w-[720px] text-white flex flex-col justify-center bg-linear-to-r from-orange to-purple rounded-2xl">
     <span class="text-[20px] font-bold">{{ schoolName }}</span>
     <div class="text-[14px] flex gap-[4px] items-center">
       <MapPin class="w-[14px]"/>

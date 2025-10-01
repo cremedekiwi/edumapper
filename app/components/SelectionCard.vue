@@ -59,7 +59,7 @@ const getDisplayValue = () => {
 </script>
 
 <template>
-  <div class="w-[343px] bg-white mt-[16px] rounded-2xl px-[16px]">
+  <div class="w-[343px] md:w-[720px] bg-white mt-[16px] rounded-2xl px-[16px]">
     <div 
       class="h-[62px] flex items-center justify-between cursor-pointer"
       @click="handleCardClick"

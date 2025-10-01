@@ -72,7 +72,7 @@ const handleConfirm = () => {
 <template>
   <div>
     <header class="h-[60px] flex items-center ">
-      <img src="assets/img/logo.png" class="h-[28px] pl-[12px]" />
+      <img src="assets/img/logo.png" class="h-[28px] pl-[24px]" />
     </header>
     
     <main class="flex flex-col items-center bg-beige/100" style="height: calc(100vh - 60px)">
@@ -94,10 +94,12 @@ const handleConfirm = () => {
         @select-secondary="handleBacTypeSelection"
       />
       <SelectionCard 
-        label="Spécialités" 
+        label="Spécialités"
+        :options="classes" 
       />
       <SelectionCard 
-        label="Notes" 
+        label="Notes"
+        :options="classes" 
       />
       <button :class="confirmButtonClasses" @click="handleConfirm">
         {{ bothClassChoicesMade ? 'Continuer' : 'Confirmer' }}
