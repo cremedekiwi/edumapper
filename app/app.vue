@@ -1,6 +1,21 @@
 <script setup>
+import { ref } from 'vue';
 import SchoolCard from '~/components/SchoolCard.vue';
 import SelectionCard from '~/components/SelectionCard.vue';
+import { classes, bacTypes } from '~/data/schools.js';
+
+const selectedClass = ref('');
+const selectedBacType = ref('');
+
+const handleClassSelection = (selectedOption) => {
+  selectedClass.value = selectedOption.name;
+  console.log('Classe sélectionnée:', selectedOption);
+};
+
+const handleBacTypeSelection = (selectedOption) => {
+  selectedBacType.value = selectedOption.name;
+  console.log('Type de bac sélectionné:', selectedOption);
+};
 </script>
 
 <template>
@@ -17,7 +32,12 @@ import SelectionCard from '~/components/SelectionCard.vue';
     
     <SelectionCard 
       label="Classe" 
-      @click="() => console.log('Classe clicked')"
+      :options="classes"
+      :secondary-options="bacTypes"
+      :selected-value="selectedClass"
+      :selected-secondary-value="selectedBacType"
+      @select="handleClassSelection"
+      @select-secondary="handleBacTypeSelection"
     />
     <SelectionCard 
       label="Spécialités" 

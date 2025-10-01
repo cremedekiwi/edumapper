@@ -8,6 +8,8 @@
     --color-pink: #FFBBE1;
     --color-beige: #F7F3F0;
     --color-gris: #757575;
+    --color-gris-10: #75757510; /* 10% d'opacité */
+    --color-gris-50: #75757580;  /* 50% d'opacité */
 }
 
 body {

@@ -136,3 +136,17 @@ export const findSchoolByName = (name) => {
     school.name.toLowerCase().includes(name.toLowerCase())
   );
 };
+
+// Classes disponibles
+export const classes = [
+  { id: 1, name: "Seconde", level: "2nde" },
+  { id: 2, name: "Première", level: "1ère" },
+  { id: 3, name: "Terminale", level: "Tale" }
+];
+
+// Types de bac disponibles
+export const bacTypes = [
+  { id: 1, name: "Général", description: "Baccalauréat général" },
+  { id: 2, name: "Technologique", description: "Baccalauréat technologique" },
+  { id: 3, name: "Professionnel", description: "Baccalauréat professionnel" }
+];
