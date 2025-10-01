@@ -60,14 +60,13 @@ onMounted(() => {
 <template>
   <div class="min-h-screen bg-beige/100">
     <!-- Header -->
-    <header class="h-[60px] flex items-center justify-between px-[16px] bg-white shadow-sm">
-      <img src="/assets/img/logo.png" class="h-[28px]" />
-      <div class="w-[60px]"></div>
+    <header class="h-[60px] flex items-center bg-white">
+      <img src="/assets/img/logo.png" class="h-[28px] pl-[24px]" />
     </header>
 
-    <main class="p-[16px]">
+    <main class="flex flex-col items-center" style="height: calc(100vh - 60px)">
       <!-- School Information -->
-      <div class="flex flex-col justify-center items-center bg-beige-30 rounded-2xl p-[16px] mb-[16px]">
+      <div class="mt-[24px] p-[16px] w-[343px] md:w-[720px] flex flex-col justify-center items-center bg-beige-30 rounded-2xl mb-[16px]">
         <div class="flex justify-center items-center gap-1 text-gris-60 text-[14px]">
           <h1>{{ schoolData.name }}</h1>
           <span class="text-gris-40">|</span>
@@ -78,7 +77,7 @@ onMounted(() => {
       </div>
 
       <!-- Container for compatibility estimate -->
-      <div class="bg-white rounded-2xl overflow-hidden shadow-sm">     
+      <div class="bg-white rounded-2xl overflow-hidden w-[343px] md:w-[720px]">     
         <!-- Progress circle -->
         <div class="flex justify-center my-[20px]">
           <div class="relative w-[150px] h-[150px]">
@@ -156,7 +155,7 @@ onMounted(() => {
       </div>
 
       <!-- Other school actions -->
-      <div class="mt-[16px] flex gap-[12px]">
+      <div class="mt-[16px] flex gap-[12px] w-[343px] md:w-[720px]">
         <button @click="goBack" class="flex-1 bg-black border-none text-white py-[12px] rounded-2xl font-medium">
           Tester une autre formation
         </button>
