@@ -7,9 +7,14 @@
     --color-orange: #FF7342;
     --color-pink: #FFBBE1;
     --color-beige: #F7F3F0;
+    --color-beige-30: #EEE8E4;
     --color-gris: #757575;
-    --color-gris-10: #75757510; /* 10% d'opacité */
-    --color-gris-50: #75757580;  /* 50% d'opacité */
+    --color-gris-10: #75757510;
+    --color-gris-40: #BDBDBD;
+    --color-gris-50: #75757580;
+    --color-gris-60: #757575;
+    --color-gris-80: #333333;
+    --color-gris-90: #212121;
 }
 
 body {
