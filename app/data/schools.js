@@ -37,78 +37,66 @@ export const schools = [
   },
   {
     id: 7,
-    name: "Lycée du bâtiment et des travaux publics",
-    city: "Paris",
-    type: "Lycée Technique"
-  },
-  {
-    id: 8,
     name: "Lycée Saint-Nicolas",
     city: "Paris",
     type: "Lycée Polyvalent Privé"
   },
   {
-    id: 9,
+    id: 8,
     name: "Lycée La Rochefoucauld",
     city: "Paris",
     type: "Lycée Privé"
   },
   {
-    id: 10,
-    name: "Lycée de l'école technique supérieure du laboratoire",
-    city: "Paris",
-    type: "Lycée Technique Privé"
-  },
-  {
-    id: 11,
+    id: 9,
     name: "Lycée Charles Péguy",
     city: "Paris",
     type: "Lycée Privé"
   },
   {
-    id: 12,
+    id: 10,
     name: "Lycée Sainte-Louise",
     city: "Paris",
     type: "Lycée Privé"
   },
   {
-    id: 13,
+    id: 11,
     name: "Lycée L'Ecole alsacienne",
     city: "Paris",
     type: "Lycée Privé"
   },
   {
-    id: 14,
+    id: 12,
     name: "Lycée ESAA-Ecole Boulle",
     city: "Paris",
     type: "Lycée Polyvalent"
   },
   {
-    id: 15,
+    id: 13,
     name: "Lycée Paul Poiret",
     city: "Paris",
     type: "Lycée Polyvalent"
   },
   {
-    id: 16,
+    id: 14,
     name: "Lycée Charlemagne",
     city: "Paris",
     type: "Lycée Public"
   },
   {
-    id: 17,
+    id: 15,
     name: "Lycée Claude Monet",
     city: "Paris",
     type: "Lycée Public"
   },
   {
-    id: 18,
+    id: 16,
     name: "Lycée Lucien de Hirsch",
     city: "Paris",
     type: "Lycée Privé"
   },
   {
-    id: 19,
+    id: 17,
     name: "Lycée Saint-Michel de Picpus",
     city: "Paris",
     type: "Lycée Privé"
@@ -150,3 +138,9 @@ export const bacTypes = [
   { id: 2, name: "Technologique", description: "Baccalauréat technologique" },
   { id: 3, name: "Professionnel", description: "Baccalauréat professionnel" }
 ];
+
+// Fonction pour sélectionner une école aléatoire
+export const getRandomSchool = () => {
+  const randomIndex = Math.floor(Math.random() * schools.length);
+  return schools[randomIndex];
+};
