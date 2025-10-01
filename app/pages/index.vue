@@ -10,49 +10,51 @@ const selectedBacType = ref('');
 const currentSchool = ref(null);
 const showSchoolSelector = ref(false);
 
-// Sélectionner une école aléatoire au montage du composant
+// Select a school randomly when the component is mounted
 onMounted(() => {
   currentSchool.value = getRandomSchool();
 });
 
+// Handler for class selection
 const handleClassSelection = (selectedOption) => {
   selectedClass.value = selectedOption.name;
-  console.log('Classe sélectionnée:', selectedOption);
 };
 
+// Handler for bac type selection
 const handleBacTypeSelection = (selectedOption) => {
   selectedBacType.value = selectedOption.name;
-  console.log('Type de bac sélectionné:', selectedOption);
 };
 
+// Open the school selector
 const handleModifySchool = () => {
   showSchoolSelector.value = true;
 };
 
+// Handler for school selection
 const handleSchoolSelection = (school) => {
   currentSchool.value = school;
   showSchoolSelector.value = false;
-  console.log('Lycée sélectionné:', school);
 };
 
+// Close the school selector
 const handleCloseSchoolSelector = () => {
   showSchoolSelector.value = false;
 };
 
-// Computed property pour vérifier si les deux choix de classe sont faits
+// Computed property to check if both class choices are made
 const bothClassChoicesMade = computed(() => {
   return selectedClass.value && selectedBacType.value;
 });
 
-// Classes CSS pour le bouton confirmer
+// CSS classes for the confirm button
 const confirmButtonClasses = computed(() => {
   if (bothClassChoicesMade.value) {
     return 'bg-black text-white py-[20px] px-[20px] w-[343px] rounded-[1000px] mt-[16px] hover:bg-gray-800 transition-all duration-300 shadow-lg';
   }
-  return 'bg-white text-gris py-[16px] w-[124px] rounded-[1000px] mt-[16px] transition-all duration-300';
+  return 'bg-white text-gris py-[16px] w-[124px] rounded-[1000px] mt-[32px] transition-all duration-300';
 });
 
-// Fonction pour naviguer vers la page de la carte
+// Function to navigate to the estimation page
 const handleConfirm = () => {
   if (bothClassChoicesMade.value && currentSchool.value) {
     navigateTo({
@@ -76,6 +78,7 @@ const handleConfirm = () => {
     </header>
     
     <main class="flex flex-col items-center bg-beige/100" style="height: calc(100vh - 60px)">
+      <!-- Actual School Card -->
       <SchoolCard 
         v-if="currentSchool"
         :school-name="currentSchool.name"
@@ -83,7 +86,8 @@ const handleConfirm = () => {
         :school-type="currentSchool.type"
         @modify="handleModifySchool"
       />
-      
+
+      <!-- Selection Card for Class and Bac Type -->
       <SelectionCard 
         label="Classe" 
         :options="classes"
@@ -93,20 +97,26 @@ const handleConfirm = () => {
         @select="handleClassSelection"
         @select-secondary="handleBacTypeSelection"
       />
+
+      <!-- Selection Cards for Specialties and Grades -->
       <SelectionCard 
         label="Spécialités"
         :show-chevron="true"
       />
+
+      <!-- Selection Card for Grades -->
       <SelectionCard 
         label="Notes"
         :show-chevron="true"
       />
+
+      <!-- Confirm / Continue Button -->
       <button :class="confirmButtonClasses" @click="handleConfirm">
         {{ bothClassChoicesMade ? 'Continuer' : 'Confirmer' }}
       </button>
     </main>
 
-    <!-- School Selector Modal -->
+    <!-- School Selector -->
     <SchoolSelector 
       :schools="schools"
       :is-visible="showSchoolSelector"

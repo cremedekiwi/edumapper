@@ -1,6 +1,7 @@
 <script setup>
 import { MapPin, Building } from 'lucide-vue-next';
 
+// Props definition
 defineProps({
   schoolName: {
     type: String,
@@ -16,6 +17,7 @@ defineProps({
   }
 });
 
+// Emit event to modify school
 defineEmits(['modify']);
 </script>
 

@@ -103,7 +103,7 @@ export const schools = [
   }
 ];
 
-// Types de lycées disponibles
+// Available school types
 export const schoolTypes = [
   "Lycée Public",
   "Lycée Privé", 
@@ -113,33 +113,33 @@ export const schoolTypes = [
   "Lycée Technique Privé"
 ];
 
-// Fonction pour filtrer les écoles par type
+// Function to filter schools by type
 export const filterSchoolsByType = (type) => {
   return schools.filter(school => school.type === type);
 };
 
-// Fonction pour chercher une école par nom
+// Function to search for a school by name
 export const findSchoolByName = (name) => {
   return schools.find(school => 
     school.name.toLowerCase().includes(name.toLowerCase())
   );
 };
 
-// Classes disponibles
+// Available classes
 export const classes = [
   { id: 1, name: "Seconde", level: "2nde" },
   { id: 2, name: "Première", level: "1ère" },
   { id: 3, name: "Terminale", level: "Tale" }
 ];
 
-// Types de bac disponibles
+// Available Bac Types
 export const bacTypes = [
   { id: 1, name: "Général", description: "Baccalauréat général" },
   { id: 2, name: "Technologique", description: "Baccalauréat technologique" },
   { id: 3, name: "Professionnel", description: "Baccalauréat professionnel" }
 ];
 
-// Fonction pour sélectionner une école aléatoire
+// Function to select a random school
 export const getRandomSchool = () => {
   const randomIndex = Math.floor(Math.random() * schools.length);
   return schools[randomIndex];

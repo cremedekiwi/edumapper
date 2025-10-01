@@ -17,7 +17,7 @@ const emit = defineEmits(['close', 'select']);
 
 const searchQuery = ref('');
 
-// Filtrer les écoles selon la recherche
+// Filtered schools based on search query
 const filteredSchools = computed(() => {
   if (!searchQuery.value) return props.schools;
   

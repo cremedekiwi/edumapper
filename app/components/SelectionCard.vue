@@ -80,7 +80,6 @@ const getDisplayValue = () => {
         />
       </div>
     </div>
-    <!-- Options principales et secondaires affichées ensemble -->
     <div 
       v-if="showOptions && options.length > 0"
       class="flex flex-col gap-[8px]"
@@ -100,7 +99,7 @@ const getDisplayValue = () => {
         </button>
       </div>
 
-      <!-- Ligne de séparation -->
+      <!-- Separator line -->
       <div 
         v-if="secondaryOptions.length > 0" 
         class="flex items-center my-[8px]"
@@ -108,7 +107,7 @@ const getDisplayValue = () => {
         <div class="flex-1 h-[1px] bg-gray-200"></div>
       </div>
 
-      <!-- Section Types de bac -->
+      <!-- Section Bac Types -->
       <div v-if="secondaryOptions.length > 0" class="mb-[16px]">
         <div class="text-sm text-gray-600 px-[4px] mb-[4px]">Type de bac</div>
         <div class="flex flex-row flex-wrap gap-[8px]">

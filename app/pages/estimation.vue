@@ -6,7 +6,7 @@ import { MapPin, Star, Zap } from 'lucide-vue-next';
 const route = useRoute();
 const router = useRouter();
 
-// Récupérer les données depuis les paramètres de la route
+// Get school data from query parameters
 const schoolData = ref({
   name: route.query.schoolName || 'Lycée',
   city: route.query.schoolCity || 'Paris',
@@ -15,19 +15,19 @@ const schoolData = ref({
   selectedBacType: route.query.selectedBacType || ''
 });
 
-// Données de compatibilité
+// Compatibility data
 const compatibilityData = ref({
   percentage: 0,
   level: '',
   reliability: 0
 });
 
-// Fonction pour revenir à la page précédente
+// Function to go back to the previous page
 const goBack = () => {
   router.push('/');
 };
 
-// Générer une estimation aléatoire de compatibilité
+// Generate a random compatibility estimate
 const generateCompatibilityScore = () => {
   const percentage = Math.floor(Math.random() * 40) + 60; // Entre 60% et 99%
   let level = '';
@@ -51,30 +51,22 @@ const generateCompatibilityScore = () => {
   };
 };
 
-// Initialiser la compatibilité
+// Initialize compatibility
 onMounted(() => {
   generateCompatibilityScore();
-  console.log('Estimation de compatibilité générée pour:', schoolData.value);
 });
 </script>
 
 <template>
   <div class="min-h-screen bg-beige/100">
-    <!-- Header avec bouton retour -->
+    <!-- Header -->
     <header class="h-[60px] flex items-center justify-between px-[16px] bg-white shadow-sm">
-<!--       <button 
-        @click="goBack"
-        class="flex items-center gap-[8px] text-gray-600 hover:text-gray-800 transition-colors"
-      >
-        <ArrowLeft class="w-[20px] h-[20px]" />
-        <span class="font-medium">Retour</span>
-      </button> -->
       <img src="/assets/img/logo.png" class="h-[28px]" />
-      <div class="w-[60px]"></div> <!-- Spacer pour centrer le logo -->
+      <div class="w-[60px]"></div>
     </header>
 
     <main class="p-[16px]">
-      <!-- Informations du lycée -->
+      <!-- School Information -->
       <div class="flex flex-col justify-center items-center bg-beige-30 rounded-2xl p-[16px] mb-[16px]">
         <div class="flex justify-center items-center gap-1 text-gris-60 text-[14px]">
           <h1>{{ schoolData.name }}</h1>
@@ -85,14 +77,12 @@ onMounted(() => {
         <span class="text-gris-90 font-semibold text-[18px]">{{ schoolData.type }}</span>
       </div>
 
-
-      <!-- Container d'estimation de compatibilité -->
+      <!-- Container for compatibility estimate -->
       <div class="bg-white rounded-2xl overflow-hidden shadow-sm">     
-        
-        <!-- Cercle de progression -->
+        <!-- Progress circle -->
         <div class="flex justify-center my-[20px]">
           <div class="relative w-[150px] h-[150px]">
-            <!-- Cercle de fond -->
+            <!-- Background circle -->
             <svg class="w-full h-full transform -rotate-90" viewBox="0 0 120 120">
               <circle
                 cx="60"
@@ -102,7 +92,7 @@ onMounted(() => {
                 stroke-width="6"
                 fill="none"
               />
-              <!-- Cercle de progression avec dégradé -->
+              <!-- Progress circle with gradient -->
               <circle
                 cx="60"
                 cy="60"
@@ -115,7 +105,7 @@ onMounted(() => {
                 :stroke-dashoffset="314 - (314 * compatibilityData.percentage / 100)"
                 class="transition-all duration-1000 ease-out"
               />
-              <!-- Définition du dégradé -->
+              <!-- Definition of the gradient -->
               <defs>
                 <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" style="stop-color:#FF7342;stop-opacity:1" />
@@ -123,8 +113,8 @@ onMounted(() => {
                 </linearGradient>
               </defs>
             </svg>
-            
-            <!-- Espace central pour l'icône d'éclair -->
+
+            <!-- Central space for lightning icon -->
             <div class="absolute inset-0 flex items-center justify-center">
               <img 
                 src="/assets/img/eclair.svg" 
@@ -135,7 +125,7 @@ onMounted(() => {
           </div>
         </div>  
 
-        <!-- Score principal -->
+        <!-- Main score -->
         <div class="p-[24px] text-center">
           <div class="mb-[16px]">
             <div class="text-[20px] font-semibold text-gris-90">
@@ -143,9 +133,7 @@ onMounted(() => {
             </div>
           </div>
 
-        
-          
-          <!-- Étoiles de fiabilité -->
+          <!-- Reliability stars -->
           <div class="flex justify-center items-center mb-[20px] gap-2">
             <div class="text-[14px] text-gray-600">Fiabilité </div>
             <div class="flex justify-center items-center gap-[4px]">
@@ -158,8 +146,6 @@ onMounted(() => {
             </div>
           </div>
           
-
-          
           <!-- Disclaimer -->
           <div>
             <p class="text-[14px] text-gris-60">
@@ -169,7 +155,7 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- Actions supplémentaires -->
+      <!-- Other school actions -->
       <div class="mt-[16px] flex gap-[12px]">
         <button @click="goBack" class="flex-1 bg-black border-none text-white py-[12px] rounded-2xl font-medium">
           Tester une autre formation
