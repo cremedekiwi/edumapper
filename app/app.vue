@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import SchoolCard from '~/components/SchoolCard.vue';
 import SelectionCard from '~/components/SelectionCard.vue';
 import SchoolSelector from '~/components/SchoolSelector.vue';
@@ -38,13 +38,26 @@ const handleSchoolSelection = (school) => {
 const handleCloseSchoolSelector = () => {
   showSchoolSelector.value = false;
 };
+
+// Computed property pour vérifier si les deux choix de classe sont faits
+const bothClassChoicesMade = computed(() => {
+  return selectedClass.value && selectedBacType.value;
+});
+
+// Classes CSS pour le bouton confirmer
+const confirmButtonClasses = computed(() => {
+  if (bothClassChoicesMade.value) {
+    return 'bg-black text-white py-[20px] px-[20px] w-[343px] rounded-[1000px] mt-[16px] hover:bg-gray-800 transition-all duration-300 shadow-lg';
+  }
+  return 'bg-white text-gris py-[16px] w-[124px] rounded-[1000px] mt-[16px] transition-all duration-300';
+});
 </script>
 
 <template>
   <header class="h-[60px] flex items-center ">
     <img src="assets/img/logo.png" class="h-[28px] pl-[12px]" />
   </header>
-    <main class="h-screen flex flex-col items-center bg-beige/100">
+    <main class="flex flex-col items-center bg-beige/100" style="height: calc(100vh - 60px)">
     <SchoolCard 
       v-if="currentSchool"
       :school-name="currentSchool.name"
@@ -68,7 +81,9 @@ const handleCloseSchoolSelector = () => {
     <SelectionCard 
       label="Notes" 
     />
-    <button class="bg-white text-gris py-[16px] w-[124px] rounded-[1000px] mt-[16px]">Confirmer</button>
+    <button :class="confirmButtonClasses">
+      {{ bothClassChoicesMade ? 'Continuer' : 'Confirmer' }}
+    </button>
   </main>
 
   <!-- School Selector Modal -->
